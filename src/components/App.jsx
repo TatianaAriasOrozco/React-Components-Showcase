@@ -1,8 +1,15 @@
 import pokemons from "../data/pokemons.json";
+import Title from "./title";
+import Counter from "./counter";
 
 function App() {
   console.log(pokemons);
-  return <h1>Happy Coding 🚀</h1>;
+  return (
+    <>
+      <Title />
+      <Counter />
+    </>
+  );
 }
 
 export default App;
