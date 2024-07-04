@@ -10,6 +10,7 @@ const Title = () => {
         fontWeight: 800,
         fontSize: "36px",
         lineHeight: "40px",
+        color: "#171717",
       }}>
         React Components
       </h1>
