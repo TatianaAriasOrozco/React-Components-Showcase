@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Milk",
+    "category": "Dairy",
+    "price": 2.5,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330380/products/milk_vmhcfw.webp"
+  },
+  {
+    "id": 2,
+    "name": "Bread",
+    "category": "Pantry",
+    "price": 1.2,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330379/products/bread_cbmctr.webp"
+  },
+  {
+    "id": 3,
+    "name": "Rice",
+    "category": "Pantry",
+    "price": 0.8,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330379/products/rice_ixg9uq.webp"
+  },
+  {
+    "id": 4,
+    "name": "Apples",
+    "category": "Fruits/Vegetables",
+    "price": 1.3,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330378/products/apples_aqihcc.webp"
+  },
+  {
+    "id": 5,
+    "name": "Chicken",
+    "category": "Meats",
+    "price": 4.5,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330377/products/chicken_opgmva.webp"
+  },
+  {
+    "id": 6,
+    "name": "Toothpaste",
+    "category": "Hygiene",
+    "price": 2.0,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330377/products/toothpaste_wjxdin.webp"
+  },
+  {
+    "id": 7,
+    "name": "Coffee",
+    "category": "Pantry",
+    "price": 3.5,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330374/products/coffee_teotm2.webp"
+  },
+  {
+    "id": 8,
+    "name": "Toilet Paper",
+    "category": "Hygiene",
+    "price": 0.9,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330376/products/toilerpaper_vsej0j.webp"
+  },
+  {
+    "id": 9,
+    "name": "Tomatoes",
+    "category": "Fruits/Vegetables",
+    "price": 1.0,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330375/products/tomatoes_udb2gx.webp"
+  },
+  {
+    "id": 10,
+    "name": "Sugar",
+    "category": "Pantry",
+    "price": 0.75,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330374/products/sugar_psfvzv.webp"
+  },
+  {
+    "id": 11,
+    "name": "Cooking Oil",
+    "category": "Pantry",
+    "price": 2.2,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330373/products/oil_pcujep.webp"
+  },
+  {
+    "id": 12,
+    "name": "Cereal",
+    "category": "Pantry",
+    "price": 3.0,
+    "image_url": "https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330373/products/cereal_ugiyyn.webp"
+  }
+]
