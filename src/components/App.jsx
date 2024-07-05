@@ -1,6 +1,7 @@
 import Title from "./title";
 import Counter from "./counter";
 import PokemonsList from "./pokemonList";
+import ShoppingCart from "./shoppingCart";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Title />
       <Counter />
       <PokemonsList />
+      <ShoppingCart />
     </div>
   );
 }

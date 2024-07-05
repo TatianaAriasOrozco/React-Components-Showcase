@@ -1,7 +1,7 @@
 import React from 'react';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-const Button = ({ description, onClick }) => {
+const Button = ({ description, onClick, styles = {} }) => {
     // obtener el size para la resolucion mobile
     const isSmallScreen = useMediaQuery('(max-width: 599px)');
 
@@ -18,6 +18,7 @@ const Button = ({ description, onClick }) => {
                 cursor: "pointer",
                 border: 0,
                 marginBottom: isSmallScreen ? "0.5rem" : "unset",
+                ...styles,
             }}
             type='Button'
             onClick={() => onClick()}
