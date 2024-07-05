@@ -1,6 +1,6 @@
-import Pokemons from "./pokemon";
 import Title from "./title";
 import Counter from "./counter";
+import PokemonsList from "./pokemonList";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
     }}>
       <Title />
       <Counter />
-      <Pokemons />
+      <PokemonsList />
     </div>
   );
 }

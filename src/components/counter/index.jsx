@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import Button from '../button';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const Counter = () => {
   //estado contador
   const [counter, setCounter] = useState(0);
+  // obtener el size para la resolucion mobile
+  const isSmallScreen = useMediaQuery('(max-width: 599px)');
 
   //handle para incrementar +1
   const increment = () => {
@@ -89,6 +92,7 @@ const Counter = () => {
           justifyContent: "space-around",
           maxWidth: "307px",
           margin: "2rem auto auto",
+          flexDirection: isSmallScreen ? "column" : "unset",
         }}>
           <Button
             onClick={increment}
