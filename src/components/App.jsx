@@ -1,13 +1,17 @@
-import pokemons from "../data/pokemons.json";
+import Pokemons from "./pokemon";
 import Title from "./title";
 import Counter from "./counter";
 
+
+
 function App() {
-  console.log(pokemons);
+ 
   return (
     <>
       <Title />
       <Counter />
+      <Pokemons/>
+      
     </>
   );
 }
