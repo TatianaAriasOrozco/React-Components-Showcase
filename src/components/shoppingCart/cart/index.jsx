@@ -1,8 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Button from '../../button'
-import useMediaQuery from '../../../hooks/useMediaQuery'
+import useMediaQuery from '../../../hooks/useMediaQuery';
+import { ThemeContext } from '..';
+
+
 
 const Cart = () => {
+    const context = useContext(ThemeContext);
+    const { cartProducts } = context;
+    const totalProductsPrice=cartProducts.reduce((acc, currentValue)=>acc + currentValue.multipliedPrice, 0)
+
     //resoluciones tablet
     const isMediumScreen = useMediaQuery('(max-width: 940px)')
     return (
@@ -14,6 +21,7 @@ const Cart = () => {
                 width: "100%",
                 margin: isMediumScreen ? "1rem auto auto" : "unset",
                 borderRadius: isMediumScreen ? "unset" : "0 16px 16px 0",
+               
             }}
         >
             <h2
@@ -26,36 +34,27 @@ const Cart = () => {
             >
                 Shopping Cart
             </h2>
-            <div
+            {cartProducts.map((product, index)=>   (<div
                 style={{
                     display: "flex",
                     justifyContent: "space-between",
+                    margin: "0.5rem 0",
                 }}
             >
+                
                 <p style={{
-                    margin: 0,
+                    margin: 0
                 }}>
-                    Bread ($ 1.2 x 2)
+                    {product.name} ($ {product.price} x {product.quantity})
                 </p>
                 <p style={{
-                    margin: 0,
+                   margin: 0
                 }}>
-                    $ 2.4
+                     ${(product.multipliedPrice).toFixed(2)}
                 </p>
-            </div>
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                }}
-            >
-                <p>
-                    Bread ($ 1.2 x 2)
-                </p>
-                <p>
-                    $ 2.4
-                </p>
-            </div>
+            </div>))}
+           
+    
             <div
                 style={{
                     display: "flex",
@@ -64,10 +63,10 @@ const Cart = () => {
                 }}
             >
                 <p>
-                    Total
+                    Total 
                 </p>
                 <p>
-                    $ 2.4
+                    $ {(totalProductsPrice).toFixed(2)}
                 </p>
             </div>
             <Button

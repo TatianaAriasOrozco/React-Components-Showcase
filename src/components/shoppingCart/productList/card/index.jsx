@@ -1,103 +1,126 @@
-import React from 'react'
-import Button from '../../../button'
+import React, { useContext, useState , useEffect} from "react";
+import Button from "../../../button";
+import { ThemeContext } from "../..";
 
-const Card = () => {
+const Card = ({ img, productName, productPrice, category }) => {
+  const [counter, setCounter] = useState(0);
+  const context = useContext(ThemeContext);
+  const {cartProducts, setCartProducts} = context;
+
+useEffect(() => {
+    const filteredProducts=cartProducts.filter((product)=>product.name !==productName )
+  if(counter >0){
+    setCartProducts([
+        ...filteredProducts, 
+        {name: productName,price: productPrice, quantity: counter , multipliedPrice: productPrice * counter }
+        
+    ])
+
+  }else {
+    setCartProducts([
+        ...filteredProducts, 
+        
+    ])
+  }
+}, [counter])
+
+
   return (
     <div
-        style={{
-            width: "100%",
-            borderRadius: "8px",
-            border: "1px solid #525252",
-            padding: "12px 0",
-            textAlign: "center",
-            position: "relative",
-        }}
+      style={{
+        width: "100%",
+        borderRadius: "8px",
+        border: "1px solid #525252",
+        padding: "12px 0",
+        textAlign: "center",
+        position: "relative",
+      }}
     >
-        <div
-            style={{
-                width: "fit-content",
-                borderRadius: "8px",
-                background: "#EDE9FE",
-                padding: "2px 8px",
-                position: "absolute",
-                top: 0,
-                right: 0,
-            }}
-        >
-            <p style={{
-                fontSize: "14px",
-                lineHeight: "20px",
-                margin: 0,
-            }}>
-                Fruits/Vegetables
-            </p>
-        </div>
-        <img 
-            src='https://res.cloudinary.com/dwdgpw20b/image/upload/v1698330380/products/milk_vmhcfw.webp'
-            alt='test'
-            width="90px"
-            height="90px"
-        />
+      <div
+        style={{
+          width: "fit-content",
+          borderRadius: "8px",
+          background: "#EDE9FE",
+          padding: "2px 8px",
+          position: "absolute",
+          top: 0,
+          right: 0,
+        }}
+      >
         <p
-            style={{
-                fontSize: "16px",
-                lineHeight: "28px",
-                color: "#171717",
-                margin: 0,
-            }}
+          style={{
+            fontSize: "14px",
+            lineHeight: "20px",
+            margin: 0,
+          }}
         >
-            Milk
+          {category}
         </p>
-        <p
-            style={{
-                fontSize: "16px",
-                lineHeight: "28px",
-                color: "#171717",
-                margin: 0,
-            }}
-        >
-            $ 2.5
-        </p>
-        <div style={{
+      </div>
+      <img src={img} alt={productName} width="90px" height="90px" />
+      <p
+        style={{
+          fontSize: "16px",
+          lineHeight: "28px",
+          color: "#171717",
+          margin: 0,
+        }}
+      >
+        {productName}
+      </p>
+      <p
+        style={{
+          fontSize: "16px",
+          lineHeight: "28px",
+          color: "#171717",
+          margin: 0,
+        }}
+      >
+        ${productPrice}
+      </p>
+      <div
+        style={{
           display: "flex",
           justifyContent: "space-evenly",
           marginTop: "0.5rem",
-        }}>
-            <Button
-                onClick={() => console.log('-')}
-                description={"-"}
-                styles={{
-                    width: "36px",
-                    height: "36px",
-                    marginBottom: "unset",
-                }}
-            />
-            <input
-                style={{
-                    width: "40px",
-                    borderRadius: "6px",
-                    border: "1px solid #f5f5f5",
-                    paddin: "8px 4px",
-                    fontSize: "14px",
-                    lineHeight: "20px",
-                    outline: "none",
-                    textAlign: "center",
-                }}
-                type="text"
-                defaultValue={0}
-            />
-            <Button
-                onClick={() => console.log('+')}
-                description={"+"}
-                styles={{
-                    width: "36px",
-                    height: "36px",
-                    marginBottom: "unset",
-                }}
-            />
-        </div>
+        }}
+      >
+        <Button 
+            isDisabled={counter <=0 }         
+          onClick={() => setCounter(counter - 1)}
+          description={"-"}
+          styles={{
+            width: "36px",
+            height: "36px",
+            marginBottom: "unset",
+          }}
+        />
+        <input
+          style={{
+            width: "40px",
+            borderRadius: "6px",
+            border: "1px solid #f5f5f5",
+            paddin: "8px 4px",
+            fontSize: "14px",
+            lineHeight: "20px",
+            outline: "none",
+            textAlign: "center",
+          }}
+          type="text"
+          value={counter}
+        />
+        <Button
+          onClick={() => setCounter(counter + 1)}
+          description={"+"}
+          styles={{
+            width: "36px",
+            height: "36px",
+            marginBottom: "unset",
+          }}
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

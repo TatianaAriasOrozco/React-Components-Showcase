@@ -57,10 +57,7 @@ const Counter = () => {
         lineHeight: "32px",
         color: "#171717",
       }}>
-        Descripción: Feugiat enim fames odio ornare lectus at.
-        Elit sit sit urna tempor. Egestas vitae orci porttitor placerat amet.
-        Consectetur egestas et porta praesent. Ac aenean nunc ullamcorper morbi scelerisque.
-        Feugiat non dolor semper aliquet donec pellentesque dictum nunc pellentesque.
+        Descripción: El componente CounterComponent en React está diseñado para manejar un contador con varias funcionalidades de actualización. Utiliza el hook useState para gestionar el estado del contador, inicializándolo a cero. El componente define varias funciones para modificar el valor del contador: 'increment' incrementa el contador en 1, 'superIncrement' lo incrementa en 10, 'reset' reinicia el contador a 0, 'random' lo incrementa por un valor aleatorio entre -20 y 20, 'decrement' lo decrementa en 1, y 'superDecrement' lo decrementa en 10. Estas funciones son asignadas a botones mediante el atributo onClick, lo que permite que al hacer clic en cada botón, el contador se actualice según la función correspondiente. El valor actual del contador se muestra en un encabezado 'p', proporcionando una interfaz interactiva para el usuario.
       </p>
       <div style={{
         background: "white",
