@@ -3,7 +3,7 @@ import Button from '../button';
 
 const Counter = () => {
   //estado contador
-  const [ counter, setCounter ] = useState(0);
+  const [counter, setCounter] = useState(0);
 
   //handle para incrementar +1
   const increment = () => {
@@ -38,7 +38,6 @@ const Counter = () => {
 
   return (
     <div style={{
-      fontFamily: "Inter, sans-serif",
       padding: "4rem",
       background: "#FAFAFA",
     }}>
@@ -91,9 +90,9 @@ const Counter = () => {
           maxWidth: "307px",
           margin: "2rem auto auto",
         }}>
-          <Button 
+          <Button
             onClick={increment}
-            description={"+"} 
+            description={"+"}
           />
           <Button
             onClick={superIncrement}

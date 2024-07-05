@@ -3,7 +3,6 @@ import React from 'react'
 const Title = () => {
   return (
     <div style={{
-      fontFamily: "Inter, sans-serif",
       textAlign: "center",
     }}>
       <h1 style={{
