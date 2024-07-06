@@ -3,15 +3,14 @@ import Button from '../../button'
 import useMediaQuery from '../../../hooks/useMediaQuery';
 import { ThemeContext } from '..';
 
-
-
 const Cart = () => {
     const context = useContext(ThemeContext);
     const { cartProducts } = context;
-    const totalProductsPrice=cartProducts.reduce((acc, currentValue)=>acc + currentValue.multipliedPrice, 0)
-
+    //obtener el total de precios
+    const totalProductsPrice = cartProducts.reduce((acc, currentValue) => acc + currentValue.multipliedPrice, 0)
     //resoluciones tablet
     const isMediumScreen = useMediaQuery('(max-width: 940px)')
+
     return (
         <div
             style={{
@@ -21,7 +20,6 @@ const Cart = () => {
                 width: "100%",
                 margin: isMediumScreen ? "1rem auto auto" : "unset",
                 borderRadius: isMediumScreen ? "unset" : "0 16px 16px 0",
-               
             }}
         >
             <h2
@@ -34,32 +32,44 @@ const Cart = () => {
             >
                 Shopping Cart
             </h2>
-            {cartProducts.map((product, index)=>   (<div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "0.5rem 0",
-                }}
-            >
-                
-                <p style={{
+            {cartProducts.map((product, index) => (
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        margin: "0.5rem 0",
+                    }}
+                    key={index}
+                >
+                    <p style={{
+                        margin: 0
+                    }}>
+                        {product.name} ($ {product.price} x {product.quantity})
+                    </p>
+                    <p style={{
                     margin: 0
-                }}>
-                    {product.name} ($ {product.price} x {product.quantity})
+                    }}>
+                        ${(product.multipliedPrice).toFixed(2)}
+                    </p>
+                </div>
+            ))}
+            {cartProducts.length === 0 && 
+                <p
+                    style={{
+                        fontWeight: 600,
+                        color: "#525252",
+                        textAlign: "center",
+                    }}
+                >
+                    No Products
                 </p>
-                <p style={{
-                   margin: 0
-                }}>
-                     ${(product.multipliedPrice).toFixed(2)}
-                </p>
-            </div>))}
-           
-    
+            }
             <div
                 style={{
                     display: "flex",
                     justifyContent: "space-between",
                     fontWeight: 600,
+                    color: "#525252",
                 }}
             >
                 <p>
@@ -77,6 +87,8 @@ const Cart = () => {
                     marginTop: "1rem",
                 }}
                 description={"Submit Your Order"}
+                onClick={() => alert("Datos del Carrito Enviados.")}
+                isDisabled={cartProducts.length === 0}
             />
         </div>
     )

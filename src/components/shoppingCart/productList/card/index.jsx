@@ -3,27 +3,27 @@ import Button from "../../../button";
 import { ThemeContext } from "../..";
 
 const Card = ({ img, productName, productPrice, category }) => {
+  //contador de cantidad del producto
   const [counter, setCounter] = useState(0);
   const context = useContext(ThemeContext);
   const {cartProducts, setCartProducts} = context;
 
-useEffect(() => {
-    const filteredProducts=cartProducts.filter((product)=>product.name !==productName )
-  if(counter >0){
-    setCartProducts([
-        ...filteredProducts, 
-        {name: productName,price: productPrice, quantity: counter , multipliedPrice: productPrice * counter }
-        
-    ])
-
-  }else {
-    setCartProducts([
-        ...filteredProducts, 
-        
-    ])
-  }
-}, [counter])
-
+  useEffect(() => {
+    //si se posee el producto, se filtra y se elimina del array
+    const filteredProducts = cartProducts.filter((product)=>product.name !== productName )
+    //se adiciona el nuevo producto con nueva cantidad
+    if (counter >0) {
+      setCartProducts([
+          ...filteredProducts, 
+          {name: productName,price: productPrice, quantity: counter , multipliedPrice: productPrice * counter }
+          
+      ])} else {
+      // no se adiciona producto nuevo
+      setCartProducts([
+          ...filteredProducts, 
+      ])
+    }
+  }, [counter])
 
   return (
     <div
@@ -86,7 +86,7 @@ useEffect(() => {
         }}
       >
         <Button 
-            isDisabled={counter <=0 }         
+          isDisabled={counter <= 0}         
           onClick={() => setCounter(counter - 1)}
           description={"-"}
           styles={{
@@ -99,7 +99,7 @@ useEffect(() => {
           style={{
             width: "40px",
             borderRadius: "6px",
-            border: "1px solid #f5f5f5",
+            border: `1px solid ${counter > 0 ? "#6D28D9" : "#f5f5f5"}`,
             paddin: "8px 4px",
             fontSize: "14px",
             lineHeight: "20px",
@@ -107,6 +107,7 @@ useEffect(() => {
             textAlign: "center",
           }}
           type="text"
+          onChange={(event) => setCounter(event.target.value)}
           value={counter}
         />
         <Button

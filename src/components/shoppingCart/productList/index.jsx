@@ -54,17 +54,13 @@ const ProductList = () => {
       >
         {products.map((product, index) => (
           <Card 
-          key={index}
-          img={product.image_url}
-          productName={product.name}
-          productPrice={product.price}
-          category={product.category}
-          
-
+            key={index}
+            img={product.image_url}
+            productName={product.name}
+            productPrice={product.price}
+            category={product.category}
           />
         ))}
-
-      
       </div>
     </div>
   );

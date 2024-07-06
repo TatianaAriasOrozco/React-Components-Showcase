@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Cart from "./cart";
 import ProductList from "./productList";
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -7,19 +7,21 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 export const ThemeContext = createContext(null);
 
 const ShoppingCart = () => {
+  //state para guardar los productos
   const [products, setProducts] = useState([]);
-  const [cartProducts, setCartProducts]=useState([]);
+  //state para guardar dinamicamente los productos que son seleccionados
+  const [cartProducts, setCartProducts] = useState([]);
+  //resoluciones tablet
+  const isMediumScreen = useMediaQuery("(max-width: 940px)");
+  //valor del contexto
   const valueContext = {
     products: products,
-    cartProducts:cartProducts,
+    cartProducts: cartProducts,
     setCartProducts: setCartProducts,
   };
 
-  
-
-  console.log(cartProducts)
   useEffect(() => {
-    //cargamos los datos del archivo json
+    //cargamos los datos del archivo productos.json
     const fetchShopping = async () => {
       const response = await fetch("/src/data/products.json");
       const result = await response.json();
@@ -29,8 +31,6 @@ const ShoppingCart = () => {
     fetchShopping();
   }, []);
 
-  //resoluciones tablet
-  const isMediumScreen = useMediaQuery("(max-width: 940px)");
   return (
     <ThemeContext.Provider value={valueContext}>
       <div
