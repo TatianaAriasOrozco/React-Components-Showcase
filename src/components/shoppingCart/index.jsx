@@ -56,11 +56,10 @@ const ShoppingCart = () => {
             color: "#171717",
           }}
         >
-          Descripción: Feugiat enim fames odio ornare lectus at. Elit sit sit
-          urna tempor. Egestas vitae orci porttitor placerat amet. Consectetur
-          egestas et porta praesent. Ac aenean nunc ullamcorper morbi
-          scelerisque. Feugiat non dolor semper aliquet donec pellentesque
-          dictum nunc pellentesque.
+          Descripción: Componente que muestra una lista de productos con sus respectivos nombres,
+          imagenes y precios, desde los cuales se puede determinar la cantidad de productos a comprar.
+          Los productos seleccionados, podran ser visualizados, en el carrito de compras (shopping cart)
+          con el valor total a pagar.
         </p>
         <div
           style={{

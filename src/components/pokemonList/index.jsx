@@ -54,10 +54,8 @@ const PokemonsList = () => {
           color: "#171717",
         }}
       >
-        Descripción: Feugiat enim fames odio ornare lectus at.
-        Elit sit sit urna tempor. Egestas vitae orci porttitor placerat amet.
-        Consectetur egestas et porta praesent. Ac aenean nunc ullamcorper morbi scelerisque.
-        Feugiat non dolor semper aliquet donec pellentesque dictum nunc pellentesque.
+        Descripción: Componente que muestra la lista de pokemones, con sus respectivos nombres,
+        tipos e imagenes. Pueden ser filtrados segun sus tipos, mediante un selector.
       </p>
       <div
         style={{
